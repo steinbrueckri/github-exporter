@@ -111,7 +111,7 @@ func getReleases(e *Exporter, url string, data *[]Release) {
 func getPRs(e *Exporter, url string, data *[]Pull) {
 	i := strings.Index(url, "?")
 	baseURL := url[:i]
-	pullsURL := baseURL + "/pulls"
+	pullsURL := baseURL + "/pulls?per_page=100"
 	pullsResponse, err := asyncHTTPGets([]string{pullsURL}, e.APIToken())
 
 	if err != nil {
